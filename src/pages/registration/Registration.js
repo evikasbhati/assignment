@@ -12,7 +12,7 @@ const Registration = () => {
     const { name, ...addressData } = userInput;
     let address ="";
     for (let value of Object.values(addressData)) {
-      address += " " + value + ",";
+      address += value +", ";
     }
      fetch("http://localhost:5000/api/user", {
       method: "POST",
