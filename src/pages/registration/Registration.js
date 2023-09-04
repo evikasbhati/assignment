@@ -1,6 +1,7 @@
 import InputField from "../../components/inputField/InputField";
 import "./registration.css";
-import { useState } from "react";
+import {useState} from "react";
+
 const Registration = () => {
   const [userInput, setUserInput] = useState({});
 
@@ -10,10 +11,14 @@ const Registration = () => {
   
   const handleSubmit = async() => {
     const { name, ...addressData } = userInput;
+
+    // Address collected in object format. Now, it is combined and converted into string  
     let address ="";
     for (let value of Object.values(addressData)) {
       address += value +", ";
     }
+
+    // Post api requested
      fetch("http://localhost:5000/api/user", {
       method: "POST",
       headers: {
