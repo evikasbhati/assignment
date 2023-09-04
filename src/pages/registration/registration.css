@@ -7,7 +7,7 @@
   .loginContainer{
     background-color: #7dad34;
     width: 300px;
-    height: 450px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -19,16 +19,24 @@
     height: 250px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     justify-content: space-evenly;
     align-items:flex-start;
   }
   
-  h4{
+h4{
     color: white;
     height: 10px;
   }
-  label{
+label{
     color: white;
   }
+.button{
+  height: 40px;
+  width: 200px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgb(13, 107, 208);
+  color: white;
+  cursor: pointer;
+}

@@ -1,11 +1,27 @@
 import InputField from "../../components/inputField/InputField";
-import "./login.css";
+import "./registration.css";
 import { useState } from "react";
-const Login = () => {
+const Registration = () => {
   const [userInput, setUserInput] = useState({});
 
   const handleUserInput = (e) => {
     setUserInput({ ...userInput, [e.target.name]: e.target.value });
+  };
+  
+  const handleSubmit = async() => {
+    const { name, ...addressData } = userInput;
+    let address ="";
+    for (let value of Object.values(addressData)) {
+      address += " " + value + ",";
+    }
+     fetch("http://localhost:5000/api/user", {
+      method: "POST",
+      headers: {
+        Accept: "application.json",
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify({ name: name, address: address }),
+    })
   };
 
   return (
@@ -49,10 +65,12 @@ const Login = () => {
               onChange={handleUserInput}
             />
           </div>
-          <button className="button">Submit</button>
+          <button className="button" onClick={handleSubmit}>
+            Submit
+          </button>
         </div>
       </div>
     </>
   );
 };
-export default Login;
+export default Registration;
